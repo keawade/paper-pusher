@@ -42,10 +42,4 @@ function quickSort(array){
   return quickSort(left).concat(pivot, quickSort(right));;
 }
 
-console.log(bubbleSort(group1));
-console.log(bubbleSort(group2));
-console.log(bubbleSort(group3));
-
-console.log(quickSort(group1));
-console.log(quickSort(group2));
-console.log(quickSort(group3));
+console.log(bubbleSort(group1.concat(group2)));
