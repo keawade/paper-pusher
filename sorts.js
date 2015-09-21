@@ -5,25 +5,47 @@ var group3 = ['sadly', 'roast', 'Loopy', 'burger', 'gavel', 'lure', 'postpone', 
 // Your code goes here! Hooray!
 
 function bubbleSort( array ){
-  x = array.length;
+  var a = array.slice(0);
+  if ( a.length == 0 ) {
+    return [];
+  }
   var switched = true;
   while( switched ){
     switched = false;
-    for( var i = 0; i < x; i++ ){
-      if( array[i] > array[i+1] ){
-        var temp = array[i];
-        array[i] = array[i+1];
-        array[i+1] = temp;
+    for( var i = 0; i < a.length; i++ ){
+      if( a[i] > a[i+1] ){
+        var b = a[i];
+        a[i] = a[i+1];
+        a[i+1] = b;
         switched = true;
       }
     }
   }
-  return array;
+  return a;
 }
 
 function quickSort(array){
-  return array;
+  var a = array.slice(0);
+  if( a.length == 0 ) {
+    return [];
+  }
+  var left = [],
+      pivot = a[0],
+      right = []
+  for( var i = 1; i < a.length; i++ ){
+    if( a[i] < pivot ){
+      left.push(a[i]);
+    } else {
+      right.push(a[i]);
+    }
+  }
+  return quickSort(left).concat(pivot, quickSort(right));;
 }
 
-console.log(group1);
 console.log(bubbleSort(group1));
+console.log(bubbleSort(group2));
+console.log(bubbleSort(group3));
+
+console.log(quickSort(group1));
+console.log(quickSort(group2));
+console.log(quickSort(group3));
